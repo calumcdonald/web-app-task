@@ -1,0 +1,61 @@
+@font-face{
+	font-family: 'Tw_Cen_MT';
+	src: url('../res/twcenmt.TTF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*global styling*/
+html{
+	font-family: 'TW_Cen_MT';
+	background-color: white;
+}
+
+body{
+    margin: 0;
+}
+
+
+/*remove number counter buttons*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#container{
+    height: 100vh;
+    display: flex;
+}
+
+#sidebar{
+    left: 65% 0 0;
+}
+
+#map{
+    flex: 1;
+}
+
+.form{
+    list-style-type: none;
+}
+
+.location{
+    border: 1px solid gray;
+    border-radius: 10px;
+    color: gray;
+    text-align: center;
+}
+
+.form-item{
+    padding: 10px;
+}
+
+#info{
+    display: none;
+}
