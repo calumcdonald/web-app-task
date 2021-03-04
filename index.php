@@ -20,6 +20,7 @@
     <div id="sidebar">
       <h1>Streamba Web App</h1>
       <ul class="form">
+        <p>test</p>
         <form action="upload.php" method="post" enctype="multipart/form-data">
           <li class="form-item">
             Select image to upload:<br>
