@@ -19,7 +19,6 @@
   <div id="container">
     <div id="sidebar">
       <h1>Streamba Web App</h1>
-      <p>hello</p>
       <ul class="form">
         <form action="upload.php" method="post" enctype="multipart/form-data">
           <li class="form-item">
