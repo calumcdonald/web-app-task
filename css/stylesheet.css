@@ -64,6 +64,6 @@ input[type=number] {
     padding: 10px;
 }
 
-#info{
-    display: none;
+.info{
+    color: red;
 }

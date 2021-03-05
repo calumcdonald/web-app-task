@@ -28,7 +28,13 @@
           </li>
         </form>
       </ul>
-      <p id="info"></p>
+      <span class="info">
+        <?php
+          if(isset($_GET["msg"])){
+            echo $_GET["msg"];
+          }
+        ?>
+      </span>
     </div>
 
     <div class="split right">
