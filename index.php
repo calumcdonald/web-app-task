@@ -22,17 +22,9 @@
       <ul class="form">
         <form action="upload.php" method="post" enctype="multipart/form-data">
           <li class="form-item">
-            First, click on a point on the map for where you want to add a picture.<br>
+            Click a point on the map for where you want to add a picture.<br>
             <input class="location" readonly type="text" value="Latitude" id="lat" name="lat">
             <input class="location" readonly type="text" value="Longitude" id="long" name="long">
-          </li>
-          <li class="form-item">
-            Now, select an image to upload:<br>
-            <input type="file" name="img" id="img">
-          </li>
-          
-          <li class="form-item">
-            <input type="submit" value="Submit" name="submit">
           </li>
         </form>
       </ul>

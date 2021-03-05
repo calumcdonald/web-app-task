@@ -1,5 +1,3 @@
-var markerClicked;
-var markers = [];
 var map = L.map('map').setView([55.8642, -4.2518], 12);
 
 L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=3GpPcDV1tQlWZwH6rYla',{
@@ -18,9 +16,14 @@ map.on('click', function(e){
   document.getElementById("lat").value = lat;
   document.getElementById("long").value = long;
 
-  if(markerClicked != null){
-    map.removeLayer(markerClicked);
-  }
-  markerClicked = L.marker([lat, long]).addTo(map);
+  var popupContent = '<form style="text-align:center;" action="upload.php" method="post" enctype="multipart/form-data">' + 
+  '<input hidden class="location" readonly type="text" value="' + lat + '" id="lat" name="lat">' +
+  '<input hidden class="location" readonly type="text" value="' + long + '" id="long" name="long">' +
+  'Upload an image to this position?<br>' +
+  '<input type="file" name="img" id="img">' +
+  '<input type="submit" value="Submit" name="submit">' +
+  '</form>';
+
+  var popup = L.popup().setLatLng(e.latlng).setContent(popupContent).openOn(map);
 });
 

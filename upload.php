@@ -1,11 +1,17 @@
 <?php
+  session_start();
   include 'db_connect.php';
   $conn = connect();
 
+  $sql = mysqli_query($conn, "SELECT MAX(img_id) FROM images");
+  $result = mysqli_fetch_row($sql);
+  $img_id = $result[0] + 1;
+  echo $img_id;
+
   $target_dir = "images/";
   $target_file = $target_dir.basename($_FILES["img"]["name"]);
-  $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+  $uploadOk = 1;
 
   $lat = $_POST['lat'];
   $long = $_POST['long'];
@@ -31,8 +37,8 @@
   if($uploadOk == 0){
     echo "Sorry, your file was not uploaded.";
   }else{
-    if(move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)){
-      $name = $_FILES["img"]["name"];
+    $name = $img_id.".".$imageFileType;
+    if(move_uploaded_file($_FILES["img"]["tmp_name"], $target_dir.$name)){
       $sql = "INSERT INTO images (img_name, img_lat, img_long) VALUES ('$name', '$lat', '$long')";
 
       if(mysqli_query($conn, $sql)){
@@ -47,5 +53,8 @@
     }
   }
 
-  close($conn); 
+  /*
+  header("Location: index.php");
+  exit;
+  */
 ?>
