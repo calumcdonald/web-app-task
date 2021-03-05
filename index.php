@@ -17,20 +17,20 @@
 
 <body>
   <div id="container">
-    <div id="sidebar">
+    <div class="split left">
       <h1>Streamba Web App</h1>
       <ul class="form">
         <form action="upload.php" method="post" enctype="multipart/form-data">
           <li class="form-item">
-            Select image to upload:<br>
-            <input type="file" name="img" id="img">
-          </li>
-          <li class="form-item">
+            First, click on a point on the map for where you want to add a picture.<br>
             <input class="location" readonly type="text" value="Latitude" id="lat" name="lat">
-          </li>
-          <li class="form-item">
             <input class="location" readonly type="text" value="Longitude" id="long" name="long">
           </li>
+          <li class="form-item">
+            Now, select an image to upload:<br>
+            <input type="file" name="img" id="img">
+          </li>
+          
           <li class="form-item">
             <input type="submit" value="Submit" name="submit">
           </li>
@@ -39,7 +39,9 @@
       <p id="info"></p>
     </div>
 
-    <div id="map"></div>
+    <div class="split right">
+      <div id="map"></div>
+    </div>
   </div>
 
   <script src="js/map.js"></script>
