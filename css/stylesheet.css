@@ -65,5 +65,6 @@ input[type=number] {
 }
 
 .info{
-    color: red;
+    border-radius: 5px;
+    color: purple;
 }

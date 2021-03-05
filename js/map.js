@@ -1,4 +1,5 @@
 var map = L.map('map').setView([55.8642, -4.2518], 12);
+var markers = [];
 
 L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=3GpPcDV1tQlWZwH6rYla',{
   tileSize: 512,
@@ -27,3 +28,10 @@ map.on('click', function(e){
   var popup = L.popup().setLatLng(e.latlng).setContent(popupContent).openOn(map);
 });
 
+function createMarker(marker){
+  var name = marker["img_name"];
+  var lat = marker["img_lat"];
+  var long = marker["img_long"];
+
+  var marker = L.marker([lat, long]).addTo(map);
+}

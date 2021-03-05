@@ -1,3 +1,16 @@
+<?php
+  include 'db_connect.php';
+  $conn = connect();
+
+  $rows = [];
+  $count = 0;
+  $sql = mysqli_query($conn, "SELECT * FROM images");
+  while($row = mysqli_fetch_assoc($sql)) {
+    $rows[$count] = $row;
+    $count++;
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +25,7 @@
   <link rel="stylesheet" href="libs/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css"/>
   <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
   <script src="libs/bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js"></script>
-  -->
+-->
 </head>
 
 <body>
@@ -43,6 +56,13 @@
   </div>
 
   <script src="js/map.js"></script>
+  <script type="text/javascript">
+    var markers = <?php echo json_encode($rows); ?>;
+    
+    for(var i = 0; i < markers.length; i++){
+      createMarker(markers[i]);
+    }
+  </script>
 </body>
 
 </html>
