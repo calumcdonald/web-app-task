@@ -30,27 +30,32 @@
 
 <body>
   <div id="container">
-    <div class="split left">
+    <div class="sidebar">
       <h1>Streamba Web App</h1>
       <ul class="form">
         <form action="upload.php" method="post" enctype="multipart/form-data">
           <li class="form-item">
-            Click a point on the map for where you want to add a picture.<br>
-            <input class="location" readonly type="text" value="Latitude" id="lat" name="lat">
-            <input class="location" readonly type="text" value="Longitude" id="long" name="long">
+            Use this app to ... <br>
+
+            Start by clicking a point on the map to add a picture!<br>
+            <input hidden class="location" readonly type="text" value="Latitude" id="lat" name="lat">
+            <input hidden class="location" readonly type="text" value="Longitude" id="long" name="long">
           </li>
         </form>
       </ul>
       <span class="info">
         <?php
-          if(isset($_GET["msg"])){
-            echo $_GET["msg"];
+          if(isset($_GET["msg"]) and $_GET["msg"] == "error"){
+            echo "There was an error uploading your image.";
+          }
+          else if(isset($_GET["msg"]) and $_GET["msg"] == "success"){
+            echo "Your image was uploaded successfully!";
           }
         ?>
       </span>
     </div>
 
-    <div class="split right">
+    <div class="map-container">
       <div id="map"></div>
     </div>
   </div>

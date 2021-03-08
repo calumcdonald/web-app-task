@@ -28,12 +28,12 @@ map.on('click', function(e){
 });
 
 function createMarker(marker){
-  var name = marker["img_name"];
-  var lat = marker["img_lat"];
-  var long = marker["img_long"];
+  var name = marker["filename"];
+  var lat = marker["latitude"];
+  var long = marker["longitude"];
 
   var marker = L.marker([lat, long]).addTo(map);
   var imgPath = "../images/" + name;
   console.log(imgPath);
-  marker.bindPopup("<img style='max-width: 400px; max-height: 400px;' src='" + imgPath + "'/>", {maxWidth: "auto"}).update();
+  marker.bindPopup("<img style='max-width: 720px; max-height: 480px;' src='" + imgPath + "'/>", {maxWidth: "auto"}).update();
 }
