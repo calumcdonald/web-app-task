@@ -16,10 +16,10 @@
   $long = $_POST['long'];
 
   //file exists check
-  /*if($_FILES[0] == null){
-    send_message("nofile_error");
+  if(!file_exists($_FILES['img']['tmp_name'])){
+    send_message("error");
     $uploadOK = 0;
-  }*/
+  }
 
   //file size check(2MB limit)
   if($_FILES["img"]["size"] > 2000000){
