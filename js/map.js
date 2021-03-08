@@ -13,12 +13,9 @@ map.on('click', function(e){
   var lat = latlng.lat.toFixed(6);
   var long = latlng.lng.toFixed(6);
 
-  document.getElementById("lat").value = lat;
-  document.getElementById("long").value = long;
-
   var popupContent = '<form style="text-align:center;" action="upload.php" method="post" enctype="multipart/form-data">' + 
-  '<input hidden class="location" readonly type="text" value="' + lat + '" id="lat" name="lat">' +
-  '<input hidden class="location" readonly type="text" value="' + long + '" id="long" name="long">' +
+  '<input hidden type="text" value="' + lat + '" id="lat" name="lat">' +
+  '<input hidden type="text" value="' + long + '" id="long" name="long">' +
   'Upload an image to this position?<br>' +
   '<input type="file" name="img" id="img">' +
   '<input type="submit" value="Submit" name="submit">' +
@@ -27,13 +24,17 @@ map.on('click', function(e){
   L.popup().setLatLng(e.latlng).setContent(popupContent).openOn(map);
 });
 
-function createMarker(marker){
-  var name = marker["filename"];
-  var lat = marker["latitude"];
-  var long = marker["longitude"];
+function createMarker(markerInfo){
+  var name = markerInfo["filename"];
+  var lat = markerInfo["latitude"];
+  var long = markerInfo["longitude"];
 
   var marker = L.marker([lat, long]).addTo(map);
   var imgPath = "images/" + name;
-  console.log(imgPath);
-  marker.bindPopup("<img style='max-width: 720px; max-height: 480px;' src='" + imgPath + "'/>", {maxWidth: "auto"});
+  var popupContent = '<img style="max-width: 720px; max-height: 480px;" src="' + imgPath + '"/>' +
+  '<form style="text-align:center;" action="delete.php" method="post" enctype="multipart/form-data">' +
+  '<input hidden type="text" value="' + name + '" name="filename">' +
+  'Delete this image?<br>' +
+  '<input type="submit" value="Delete" name="delete">';
+  marker.bindPopup(popupContent, {maxWidth: "auto"});
 }

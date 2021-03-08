@@ -23,7 +23,7 @@
 
   //file size check(2MB limit)
   if($_FILES["img"]["size"] > 2000000){
-    send_message("filesize_error"); 
+    send_message("error"); 
     //send_message("Sorry, your file is too large.");
     $uploadOk = 0;
   }

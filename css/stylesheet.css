@@ -51,21 +51,6 @@ input[type=number] {
     height: 100%;
 }
 
-.form{
-    list-style-type: none;
-}
-
-.location{
-    border: 1px solid gray;
-    border-radius: 10px;
-    color: gray;
-    text-align: center;
-}
-
-.form-item{
-    padding: 10px;
-}
-
 .info{
     border-radius: 5px;
     color: purple;

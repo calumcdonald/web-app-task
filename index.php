@@ -29,14 +29,6 @@
       <p>Use this app to ... </p>
       <p>Start by clicking a point on the map to add a picture!</p>
 
-      <ul class="form">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-          <li class="form-item">
-            <input hidden class="location" readonly type="text" value="Latitude" id="lat" name="lat">
-            <input hidden class="location" readonly type="text" value="Longitude" id="long" name="long">
-          </li>
-        </form>
-      </ul>
       <span class="info">
         <?php
           if(isset($_GET["msg"]) and $_GET["msg"] == "error"){
@@ -44,6 +36,9 @@
           }
           else if(isset($_GET["msg"]) and $_GET["msg"] == "success"){
             echo "Your image was uploaded successfully!";
+          }
+          else if(isset($_GET["msg"]) and $_GET["msg"] == "delete_success"){
+            echo "The image was deleted successfully!";
           }
         ?>
       </span>
