@@ -33,7 +33,7 @@ function createMarker(marker){
   var long = marker["longitude"];
 
   var marker = L.marker([lat, long]).addTo(map);
-  var imgPath = "../images/" + name;
+  var imgPath = "images/" + name;
   console.log(imgPath);
-  marker.bindPopup("<img style='max-width: 720px; max-height: 480px;' src='" + imgPath + "'/>", {maxWidth: "auto"}).update();
+  marker.bindPopup("<img style='max-width: 720px; max-height: 480px;' src='" + imgPath + "'/>", {maxWidth: "auto"});
 }
