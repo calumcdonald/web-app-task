@@ -5,22 +5,9 @@
     font-style: normal;
 }
 
-/*global styling*/
 html, body{
 	font-family: 'TW_Cen_MT';
 	background-color: white;
-}
-
-/*remove number counter buttons*/
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 #container{
@@ -29,11 +16,10 @@ input[type=number] {
 
 .sidebar{
     position: fixed;
-    border: 3px solid purple;
     border-radius: 30px;
     left: 50px;
     background-color: white;
-    z-index: 2;
+    z-index: 1;
     width: 25%;
 }
 
@@ -49,9 +35,4 @@ input[type=number] {
 #map{
     width: 100%;
     height: 100%;
-}
-
-.info{
-    border-radius: 5px;
-    color: purple;
 }
