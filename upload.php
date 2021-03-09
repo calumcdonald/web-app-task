@@ -31,7 +31,8 @@
 
   $name = $img_id.".".$imageFileType;
   if(move_uploaded_file($_FILES["img"]["tmp_name"], $target_dir.$name)){
-    $sql = "INSERT INTO images (filename, latitude, longitude) VALUES ('$name', '$lat', '$long')";
+    $date = date("Y-m-d H:i:s");
+    $sql = "INSERT INTO images (filename, latitude, longitude, date_added) VALUES ('$name', '$lat', '$long', '$date')";
 
     if(mysqli_query($conn, $sql)){
       sendMessage("Success! Your image was uploaded successfully.");

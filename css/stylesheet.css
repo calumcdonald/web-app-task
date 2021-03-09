@@ -7,7 +7,7 @@
 
 html, body{
 	font-family: 'TW_Cen_MT';
-	background-color: white;
+	background-color: #ffffff;
 }
 
 #container{
@@ -18,9 +18,10 @@ html, body{
     position: fixed;
     border-radius: 30px;
     left: 50px;
-    background-color: white;
+    background-color: #ffffff;
     z-index: 1;
     width: 25%;
+    box-shadow: 0 0 15px #888888;
 }
 
 .map-container{

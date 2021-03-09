@@ -17,7 +17,7 @@ map.on('click', function(e){
   '<input hidden type="text" value="' + lat + '" id="lat" name="lat">' +
   '<input hidden type="text" value="' + long + '" id="long" name="long">' +
   'Upload an image to this position?<br>' +
-  '<input type="file" name="img" id="img">' +
+  '<input type="file" accept="image/*" name="img" id="img">' +
   '<input type="submit" value="Submit" name="submit">' +
   '</form>';
 
@@ -28,10 +28,12 @@ function createMarker(markerInfo){
   var name = markerInfo["filename"];
   var lat = markerInfo["latitude"];
   var long = markerInfo["longitude"];
+  var date = markerInfo["date_added"];
 
   var marker = L.marker([lat, long]).addTo(map);
   var imgPath = "images/" + name;
   var popupContent = '<img style="max-width: 720px; max-height: 480px;" src="' + imgPath + '"/>' +
+  '<span>Date added: ' + date + '</span>' + 
   '<form style="text-align:center;" action="delete.php" method="post" enctype="multipart/form-data">' +
   '<input hidden type="text" value="' + name + '" name="filename">' +
   'Delete this image?<br>' +
