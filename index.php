@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include 'db_connect.php';
   $conn = connect();
 
@@ -8,27 +9,6 @@
   while($row = mysqli_fetch_assoc($sql)) {
     $rows[$count] = $row;
     $count++;
-  }
-
-  function statusMessage($msg){
-    if($msg == "nofile_upload_error"){
-      echo "<span style='color: red;'>Upload error: there was no image selected.</span>";
-    }
-    else if($msg == "filesize_upload_error"){
-      echo "<span style='color: red;'>Upload error: The file was too large. (max. 2MB)</span>";
-    }
-    else if($msg == "extension_upload_error"){
-      echo "<span style='color: red;'>Upload error: Only JPG, JPEG and PNG images are allowed.</span>";
-    }
-    else if($msg == "error"){
-      echo "<span style='color: red;'>Upload error: There was an error uploading your image.</span>";
-    }
-    else if($msg == "upload_success"){
-      echo "<span style='color: green;'>Success! Your image was uploaded successfully.</span>";
-    }
-    else if($msg == "delete_success"){
-      echo "<span style='color: green;'>Success! The image was deleted successfully.</span>";
-    }
   }
 ?>
 
@@ -52,8 +32,9 @@
       <p>Start by clicking a location on the map!</p>
 
       <?php
-        if(isset($_GET["msg"])){
-          statusMessage($_GET["msg"]);
+        if(isset($_SESSION['msg'])){
+          echo "<p style='color: purple;'>".$_SESSION['msg']."</p>";
+          unset($_SESSION['msg']);
         } 
       ?>
     </div>

@@ -10,10 +10,11 @@
 
   unlink("images/" . $name);
 
-  send_message("delete_success");
+  sendMessage("Success! The image was deleted successfully.");
 
-  function send_message($msg){
-    header("Location:index.php?msg=$msg");
+  function sendMessage($msg){
+    $_SESSION['msg'] = $msg;
+    header("Location:index.php");
     exit;
   }
 ?>

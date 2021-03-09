@@ -16,17 +16,17 @@
 
   //file exists check
   if(!file_exists($_FILES['img']['tmp_name'])){
-    send_message("nofile_upload_error");
+    sendMessage("Upload error: there was no image selected.");
   }
 
   //file size check(2MB limit)
   if($_FILES["img"]["size"] > 2000000){
-    send_message("filesize_upload_error"); 
+    sendMessage("Upload error: The file was too large. (max. 2MB)");
   }
 
   //format check
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    send_message("extension_upload_error"); 
+    sendMessage("Upload error: Only JPG, JPEG and PNG images are allowed.");
   }
 
   $name = $img_id.".".$imageFileType;
@@ -34,16 +34,17 @@
     $sql = "INSERT INTO images (filename, latitude, longitude) VALUES ('$name', '$lat', '$long')";
 
     if(mysqli_query($conn, $sql)){
-      send_message("upload_success"); 
+      sendMessage("Success! Your image was uploaded successfully.");
     }else{
-      send_message("error"); 
+      sendMessage("Upload error: There was an error uploading your image.");
     }
   }else{
-    send_message("error"); 
+    sendMessage("Upload error: There was an error uploading your image."); 
   }
 
-  function send_message($msg){
-    header("Location:index.php?msg=$msg");
+  function sendMessage($msg){
+    $_SESSION['msg'] = $msg;
+    header("Location:index.php");
     exit;
   }
 ?>
