@@ -19,9 +19,9 @@
     sendMessage("Upload error: there was no image selected.");
   }
 
-  //file size check(2MB limit)
-  if($_FILES["img"]["size"] > 2000000){
-    sendMessage("Upload error: The file was too large. (max. 2MB)");
+  //file size check (8MB limit)
+  if($_FILES["img"]["size"] > 8000000){
+    sendMessage("Upload error: The file was too large. (max. 8MB)");
   }
 
   //format check
