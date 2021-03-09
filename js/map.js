@@ -39,4 +39,6 @@ function createMarker(markerInfo){
   'Delete this image?<br>' +
   '<input type="submit" value="Delete" name="delete">';
   marker.bindPopup(popupContent, {maxWidth: "auto"});
+  marker.openPopup();
+  marker.closePopup();
 }
