@@ -26,17 +26,24 @@
 <body>
   <div id="container">
     <div class="sidebar">
-      <h1>Pothole Reporter</h1>
-      <p>Use this app to report and view potholes, anywhere in the world!</p>
-      <p>You can upload images, and also delete them; for when a pothole gets filled in. (if it ever does...)</p>
-      <p>Start by clicking a location on the map!</p>
+      <input hidden id="collapsible" type="checkbox" class="toggle" checked>
+      <label for="collapsible" class="lbl-toggle">
+        <h1>Pothole Reporter</h1>
+        <span class="down"></span></h1>
+      </label>
+      </input>
+      <div class="content">
+        <p>Use this app to report and view potholes, anywhere in the world!</p>
+        <p>You can upload images, and also delete them; for when a pothole gets filled in. (if it ever does...)</p>
+        <p>Start by clicking a location on the map!</p>
 
-      <?php
-        if(isset($_SESSION['msg'])){
-          echo "<p style='color: purple;'>".$_SESSION['msg']."</p>";
-          unset($_SESSION['msg']);
-        } 
-      ?>
+        <?php
+          if(isset($_SESSION['msg'])){
+            echo "<p style='color: purple;'>".$_SESSION['msg']."</p>";
+            unset($_SESSION['msg']);
+          } 
+        ?>
+      </div>
     </div>
 
     <div class="map-container">
@@ -45,6 +52,7 @@
   </div>
 
   <script src="js/map.js"></script>
+  <script type="text/javascript" src="js/collapsible.js"></script>
   <script type="text/javascript">
     var markers = <?php echo json_encode($rows); ?>;
     
